@@ -1,0 +1,11 @@
+.vagrant*
+thirdparty/*
+!thirdparty/readme.md
+build
+dist
+
+*.pyc
+.idea/*
+.DS_Store
+
+npm-debug.log

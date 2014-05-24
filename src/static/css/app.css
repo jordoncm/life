@@ -1,0 +1,12 @@
+body {
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
+
+.navbar {
+  margin-bottom: 20px;
+}
+
+.table-actions {
+  text-align: right;
+}

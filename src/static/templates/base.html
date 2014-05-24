@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="navbar navbar-default" role="navigation">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#/">Life</a>
+    </div>
+    <div class="navbar-collapse collapse" id="apps-menu">
+      <ul class="nav navbar-nav">
+        {% for app_name, app in apps %}
+          {% if loop.index0 == apps_featured %}
+            <li class="dropdown">
+              <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">Apps <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+          {% endif %}
+          <li data-key="{{ app_name }}"><a href="#/{{ app_name }}/">{{ app.title }}</a></li>
+          {% if loop.last and loop.index0 >= apps_featured %}
+              </ul>
+            </li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+      <form class="navbar-form navbar-right" role="form" onsubmit="return false;">
+        <div class="form-group">
+          <input id="passphrase" type="password" placeholder="Encryption Password" class="form-control" value="{{ passphrase }}" />
+        </div>
+      </form>
+    </div>
+  </div>
+  <div id="content"></div>
+  <div id="modal"></div>
+</div>

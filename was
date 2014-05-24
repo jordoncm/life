@@ -1,0 +1,24 @@
+#!/bin/bash
+# Web App Scaffolding
+#
+# This folder structure and set of scripts provides a framework for building,
+# compiling, running and deploying web applications. See the readme.md files
+# throughout the framework for details.
+#
+# Copyright (c) 2013 - 2014 Jordon Mears.
+#
+# Web Application Scaffolding is made available under the MIT license.
+# <http://opensource.org/licenses/MIT>
+
+cd `dirname $0`
+source ./was.cfg
+
+PATH="$PATH:$WAS_DEPS/node-$NODE_VERSION-linux-x64/bin"
+if [ `uname` == 'Darwin' ]; then
+  PATH="$PATH:$WAS_DEPS/node-$NODE_VERSION-darwin-x64/bin"
+fi
+export PATH=$PATH:$WAS_DEPS/node_modules/.bin
+
+source $WAS_DEPS/py/bin/activate
+export PYTHONPATH=$PYTHONPATH:`pwd`
+invoke "$@"

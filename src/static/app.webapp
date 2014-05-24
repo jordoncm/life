@@ -1,0 +1,27 @@
+{
+  "name": "Life",
+  "version" : "0.0.0",
+  "description": "",
+  "long_description" : "",
+  "launch_path": "/",
+  "url": "",
+  "categories": [],
+  "flattr_user_id" : "",
+  "icons": {
+    "16": "img/promo/icon_16.png",
+    "48": "img/promo/icon_48.png",
+    "96": "img/promo/icon_96.png",
+    "128": "img/promo/icon_128.png"
+  },
+  "promo_images": {
+    "small": "img/promo/promo_small.png"
+  },
+  "screenshots": [
+    "img/promo/screenshot1.png"
+  ],
+  "developer": {
+    "name": "Jordon Mears",
+    "url": "http://www.finefrog.com"
+  },
+  "default_locale": "en"
+}

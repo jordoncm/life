@@ -1,0 +1,7 @@
+<div class="form-group">
+  <label class="col-sm-2 control-label">{{ item.key }}</label>
+  <div class="col-sm-10">
+    <div id="epiceditor" style="height: 350px"></div>
+    <textarea data-key="{{ item.key }}" data-type="{{ item.type }}" style="display: none;">{{ doc[item.key] }}</textarea>
+  </div>
+</div>
