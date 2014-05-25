@@ -6,6 +6,7 @@ goog.provide('life.views.Base');
 
 goog.require('life');
 goog.require('life.View');
+goog.require('life.crypto');
 goog.require('life.topics.Route');
 
 
@@ -54,7 +55,7 @@ life.views.Base.prototype.render = function() {
     'apps_featured': 2,
     'passphrase': localStorage.getItem('passphrase') || ''
   }));
-  this.on('#passphrase', 'keyup', function(e) {
+  this.on(life.crypto.PASSPHRASE_SELECTOR, 'keyup', function(e) {
     localStorage.setItem('passphrase', $(e.target).val());
   });
 };

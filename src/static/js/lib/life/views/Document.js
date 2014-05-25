@@ -74,6 +74,7 @@ life.views.Document.prototype.unsaved;
  */
 life.views.Document.prototype.saving;
 
+
 /**
  * Reference to a window.setInterval used to track document changes.
  *

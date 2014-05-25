@@ -6,6 +6,14 @@ goog.provide('life.crypto');
 
 
 /**
+ * The selector of the passphrase input field.
+ *
+ * @const {string}
+ */
+life.crypto.PASSPHRASE_SELECTOR = '#passphrase';
+
+
+/**
  * Fetch the current encryption passphrase.
  *
  * Use should use this method fetch the encryption passphase always and never
@@ -16,7 +24,7 @@ goog.provide('life.crypto');
  * @return {string} The current passphrase as set by the user.
  */
 life.crypto.getPassphrase = function() {
-  return $('#passphrase').val();
+  return $(life.crypto.PASSPHRASE_SELECTOR).val();
 };
 
 
