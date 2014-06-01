@@ -1,23 +1,79 @@
-Sample Application
-==================
+Life
+====
 
-This file can be used as a sample project readme.
+Life is a CouchApp that deploys to CouchDB and allows users to define simple
+Javascript document structures (apps) and manage documents based on these
+structures in a easy to use web interface.
 
-These files are a simple sample application on top of the scaffolding. Update
-this readme with your project details and replace application files in `src` as
-needed.
+Core Features
+-------------
+
+*Client side encryption.*
+
+Life supports AES encryption on any document property and the encryption is
+handled on the CLIENT side. This means the decryption key stays with the user
+and is never shared out.
+
+*Distributed by default.*
+
+Being deployed on CouchDB gives you the great replication and syncing
+capabilities of CouchDB out of the box. This means you can run the Life
+application and your document store on many devices and sync as needed.
+
+*Document templates are apps.*
+
+A document structure definition defines how various documents are structured
+and grouped. These structures can be thought of as a model definition in
+programming terms. The web interface treats these these structures (or
+templates) as the mode of the interface, colloquially know as an app.
+
+*Markdown support.*
+
+Document properties that are defined as rich text support Markdown syntax.
+
+*Non-destructive document updates.*
+
+Documents created or edited in Life will only modify the properties within the
+documents template. This means you can freely add and remove other parts of the
+document inside of CouchDB's Futon or any other application.
+
+*Tagging*
+
+All documents support tagging for easy filtering of documents.
+
+Default Apps
+------------
+
+Right now there are a handful default applications that come with Life out of
+the box. They include:
+
+  - *Notes*: A simple note taking application.
+  - *Passwords*: A simple password manager.
+  - *Links*: A simple link manager.
+
+NOTE: Also for now in order to add new apps you have to add their definitions
+in the Javascript.
+
+Near Term Goals
+---------------
+
+Life so far is just a simple web applications, but I have big plans. Some of
+which are listed here.
+
+  - Document templates stored in the database.
+  - PouchDB based mobile application.
+  - Database syncing user interface.
+  - Support for document attachments.
+
+Deploying
+---------
+
+Developing
+----------
 
 --------------------------------------------------------------------------------
 
-WARNING: Deploying the sample using the `was sample` command could overwrite or
-destroy existing files in the scaffolding. This sample should only be used on
-empty scaffolding in order to learn the structure of the scaffolding.
-
---------------------------------------------------------------------------------
-
-This project is powered by Web Application Scaffolding.
-
-Copyright (c) 2013 Jordon Mears.
+Copyright (c) 2014 Jordon Mears.
 
 Web Application Scaffolding is made available under the MIT license.
 <http://opensource.org/licenses/MIT>
