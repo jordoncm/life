@@ -88,7 +88,10 @@ Developing
 Life uses Less.js and Closure Compiler to build the source into a deployable
 CouchApp.
 
-To develop
+To develop on Life follow the steps above on deploying. You can deploy a
+development version by:
+
+    ./was deploy --debug
 
 --------------------------------------------------------------------------------
 
