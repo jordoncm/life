@@ -97,5 +97,5 @@ development version by:
 
 Copyright (c) 2014 Jordon Mears.
 
-Web Application Scaffolding is made available under the MIT license.
+Life is made available under the MIT license.
 <http://opensource.org/licenses/MIT>
