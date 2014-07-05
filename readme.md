@@ -68,19 +68,18 @@ which are listed here.
 Deploying
 ---------
 
-Deploying Life is not straightforward at the moment, but the basic process is:
+Deploying Life is pretty straightforward, the basic process is:
 
   1. Install and configure CouchDB wherever you intend to deploy to.
-  2. Create a database for Life in your CouchDB instance.
-  3. Install [Erica](https://github.com/benoitc/erica).
-  4. Run `./setup-dev.sh`.
-  5. Edit `tasks.py` and set the URL for your CouchDB instance (around line 47).
-  6. Run `./was deploy`.
+  2. Create a database for Life in your CouchDB instance (called 'life').
+  3. Run `./setup-dev.sh`.
+  4. Edit `tasks.py` and set the URL for your CouchDB instance (around line 47).
+  5. Run `./was deploy`.
 
 Life should be installed and accessible by loading the design document. On an
 unconfigured local installation of CouchDB this URL would be:
 
-    http://localhost:5984/life/_design/static/_rewrite/
+    http://localhost:5984/life/_design/life/_rewrite/
 
 Developing
 ----------
