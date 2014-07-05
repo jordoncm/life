@@ -20,8 +20,7 @@ life.DEFAULT_APPS = {
       {key: 'title', type: 'string'},
       {key: 'description', type: 'rich'}
     ],
-    type: 'note',
-    view: 'static/type_note'
+    type: 'note'
   },
   'passwords': {
     title: 'Passwords',
@@ -32,8 +31,7 @@ life.DEFAULT_APPS = {
       {key: 'password', type: 'password', encrypted: true},
       {key: 'email', type: 'string', encrypted: true}
     ],
-    type: 'password',
-    view: 'static/type_password'
+    type: 'password'
   },
   'links': {
     title: 'Links',
@@ -42,8 +40,7 @@ life.DEFAULT_APPS = {
       {key: 'link', type: 'string'},
       {key: 'description', type: 'rich'}
     ],
-    type: 'link',
-    view: 'static/type_link'
+    type: 'link'
   }
 };
 // TODO(jordoncm): Add typedefs for these above.

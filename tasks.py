@@ -42,9 +42,9 @@ def was_clean(**kwargs):  # pylint: disable=unused-argument
 def was_deploy(debug=False):  # pylint: disable=unused-argument
   """Deploys the application."""
   invoke.run(' '.join([
-    'cd ' + os.environ.get('WAS_BUILD_BASE') + '/dist/default/static',
+    'cd ' + os.environ.get('WAS_BUILD_BASE') + '/dist/default',
     '&&',
-    'erica push http://life.wm.m:5984/life'
+    os.environ.get('WAS_DEPS') + '/node_modules/.bin/couchapp push app.js http://life.wm.m:5984/foo'
   ]))
 
 @invoke.task('was.lint.pylint', 'was.lint.lessc', 'was.lint.gjslint')

@@ -75,6 +75,12 @@ if [ -z "$INSTALLED" ]; then
   $WAS_DEPS/$FILE/bin/npm install less
 fi
 
+# Install couchapp.
+INSTALLED=`$WAS_DEPS/$FILE/bin/npm list --depth=0 2>/dev/null | grep couchapp`
+if [ -z "$INSTALLED" ]; then
+  $WAS_DEPS/$FILE/bin/npm install couchapp
+fi
+
 # Install the Closure compiler.
 if [ ! -e "compiler-latest.zip" ]; then
   wget http://dl.google.com/closure-compiler/compiler-latest.zip
@@ -85,21 +91,23 @@ if [ ! -d "py" ]; then
   virtualenv py
 fi
 
-$WAS_DEPS/py/bin/pip install invoke
-$WAS_DEPS/py/bin/pip install pylint
+source $WAS_DEPS/py/bin/activate
+
+pip install invoke==0.7.0
+pip install pylint
 
 # Install gflags.
-FILE="python-gflags-2.0"
+FILE="v2.1.1"
 if [ ! -e "$FILE.tar.gz" ]; then
-  wget http://python-gflags.googlecode.com/files/$FILE.tar.gz
+  wget https://github.com/schuhschuh/gflags/archive/$FILE.tar.gz
   tar -xzf $FILE.tar.gz
-  cd $FILE
+  cd gflags-2.1.1
   $WAS_DEPS/py/bin/python setup.py install
   cd ..
 fi
 
 # Install Closure linter.
-FILE="closure_linter-2.3.11"
+FILE="closure_linter-2.3.13"
 if [ ! -e "$FILE.tar.gz" ]; then
   wget http://closure-linter.googlecode.com/files/$FILE.tar.gz
   tar -xzf $FILE.tar.gz

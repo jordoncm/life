@@ -43,7 +43,7 @@ life.views.List = life.extend(function(view) {
  * @const
  * @type {string}
  */
-life.views.List.VIEW_TYPE = 'static/type';
+life.views.List.VIEW_TYPE = 'life/type';
 
 
 /**
@@ -52,7 +52,7 @@ life.views.List.VIEW_TYPE = 'static/type';
  * @const
  * @type {string}
  */
-life.views.List.VIEW_TAG = 'static/tag';
+life.views.List.VIEW_TAG = 'life/tag';
 
 
 /**
