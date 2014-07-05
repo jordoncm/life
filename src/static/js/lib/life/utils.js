@@ -65,11 +65,23 @@ life.utils.getCurrentDbName = function() {
 
 
 /**
+ * The database reference.
+ *
+ * @type {?PouchDB}
+ */
+life.utils.db = null;
+
+
+/**
  * Fetches the current database object.
  *
- * @return {$.couch.db} The jQuery couch database object.
+ * @return {PouchDB} The jQuery couch database object.
  */
 life.utils.getDb = function() {
+  life.utils.db = life.utils.db || new PouchDB(
+    window.location.origin+ '/' + life.utils.getCurrentDbName()
+  );
+  return life.utils.db;
   return $.couch.db(life.utils.getCurrentDbName());
 };
 

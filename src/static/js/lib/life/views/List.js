@@ -101,21 +101,26 @@ life.views.List.prototype.fetchList = function(e, app, tag) {
   }
 
   // startkey must be higher than endkey since we are sorting by descending.
-  life.utils.getDb().view(this.view, {
-    'success': _.bind(this.render, this),
+  life.utils.getDb().query(this.view, {
     'descending': 'true',
     'startkey': startKey,
     'endkey': endKey
-  });
+  }, _.bind(this.render, this));
 };
 
 
 /**
  * Renders the template to the DOM.
  *
- * @param {Object} response The list of documents to render.
+ * @param {?Object} err The error object if request fails.
+ * @param {Object=} response The list of documents to render (will not be set
+ *     if there is an error).
  */
-life.views.List.prototype.render = function(response) {
+life.views.List.prototype.render = function(err, response) {
+  if(err) {
+    return;
+  }
+
   $(this.el).html(nunjucks.render('list.html', {
     'response': response,
     'tag': this.tag

@@ -100,9 +100,11 @@ life.views.Document.prototype.fetchDocument = function(e, app, docId) {
   this.docId = docId;
 
   if(docId) {
-    life.utils.getDb().openDoc(docId, {}, {
-      'success': _.bind(this.render, this)
-    });
+    life.utils.getDb().get(docId, _.bind(function(err, doc) {
+      if(!err) {
+        this.render(doc);
+      }
+    }, this));
   } else {
     this.render();
   }
@@ -248,12 +250,13 @@ life.views.Document.prototype.saveDoc = function() {
     doc['ctime'] = this.doc['ctime'] = this.unsaved['ctime'] = ctime;
   }
   this.saving = doc;
-  life.utils.getDb().saveDoc(
-    doc,
-    {
-      'success': _.bind(this.docSaveSuccess, this)
-    }
-  );
+
+  var callback = _.bind(this.docSaveSuccess, this)
+  if(doc['_id']) {
+    life.utils.getDb().put(doc, callback);
+  } else {
+    life.utils.getDb().post(doc, callback);
+  }
 };
 
 
@@ -263,9 +266,15 @@ life.views.Document.prototype.saveDoc = function() {
  * Updates the DOM form and the document with _id and _rev values. Also changes
  * the URL route when a new document is saved for the first time.
  *
- * @param {Object} response The updated document from the server.
+ * @param {?Object} err The error object if request fails.
+ * @param {Object=} response The updated document from the server (will not be
+ *     set if there is an error).
  */
-life.views.Document.prototype.docSaveSuccess = function(response) {
+life.views.Document.prototype.docSaveSuccess = function(err, response) {
+  if(err) {
+    return;
+  }
+
   var appConfig = life.utils.getAppConfiguration(this.app);
   // Sync all the key fields.
   this.saving['_id'] = this.unsaved['_id'] = response['id'];

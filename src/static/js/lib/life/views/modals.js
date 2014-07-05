@@ -59,9 +59,9 @@ life.views.modals.DocumentDelete.prototype.render = function() {
 life.views.modals.DocumentDelete.prototype.action = function(e) {
   var action = $(e.target).data('key');
   if(action === 'delete') {
-    life.utils.getDb().removeDoc(
+    life.utils.getDb().remove(
       {'_id': this.docId, '_rev': this.docRev},
-      {'success': function() {$.publish('//doc/delete')}}
+      function() {$.publish('//doc/delete')}
     );
   }
   // This is a hack to let the fade out of the modal to work correctly before

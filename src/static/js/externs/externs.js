@@ -52,6 +52,15 @@ $.subscribe = function(data, callback) {};
 jQuery.prototype.modal = function(action) {};
 
 
+var PouchDB = function(name, options) {};
+
+PouchDB.prototype.get = function() {};
+PouchDB.prototype.post = function() {};
+PouchDB.prototype.put = function() {};
+PouchDB.prototype.query = function() {};
+PouchDB.prototype.remove = function() {};
+
+
 var nunjucks = {};
 
 
