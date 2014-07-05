@@ -16,7 +16,7 @@ life.test.views.List.run = function() {
   test('routeToTag.test', function() {
     var view = new life.views.List();
     view.el = '#qunit-fixture';
-    view.render({'rows': []});
+    view.render(null, {'rows': []});
     view.app = 'foo';
     var input = $(view.el + ' #search-tag input');
     // Set a value into the tag filter field.

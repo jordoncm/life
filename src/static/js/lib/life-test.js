@@ -60,11 +60,6 @@ life.test.run = function() {
       equal(typeof app.type, 'string', 'App type should be a string.');
       notEqual(app.type, '', 'App type should not be empty.');
       equal(app.type, app.type.toLowerCase(), 'App type should be lowercase.');
-
-      notEqual(app.view, undefined, 'App view should be defined.');
-      equal(typeof app.view, 'string', 'App view should be a string.');
-      notEqual(app.view, '', 'App view should not be empty.');
-      equal(app.view, app.view.toLowerCase(), 'App view should be lowercase.');
     }
   });
 

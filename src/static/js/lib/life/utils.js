@@ -82,7 +82,6 @@ life.utils.getDb = function() {
     window.location.origin+ '/' + life.utils.getCurrentDbName()
   );
   return life.utils.db;
-  return $.couch.db(life.utils.getCurrentDbName());
 };
 
 
